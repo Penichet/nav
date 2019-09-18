@@ -44,8 +44,8 @@ public class MainActivity extends AppCompatActivity {
 
     public void randomMe (View v) {
         locationInput = (EditText) findViewById(R.id.locationInput);
-        //String address = locationInput.getText().toString();
-        String address = "129 Camp Verde Drive, Georgetown, Tx 78633";
+        String address = locationInput.getText().toString();
+        //String address = "129 Camp Verde Drive, Georgetown, Tx 78633";
         ///////////////////////////////////////////////////////////////////
         randomIntent = new Intent(this, SecondActivity.class);
 

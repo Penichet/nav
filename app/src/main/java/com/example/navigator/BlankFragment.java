@@ -27,7 +27,9 @@ public class BlankFragment extends Fragment implements OnMapReadyCallback {
     private GoogleMap mMap;
     MapView mMapView;
     View mView;
-
+    String lat;
+    String lon;
+    SecondActivity activity;
     public BlankFragment() {
         // Required empty public constructor
     }
@@ -37,7 +39,13 @@ public class BlankFragment extends Fragment implements OnMapReadyCallback {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         mView = inflater.inflate(R.layout.fragment_blank, container, false);
+        activity = (SecondActivity) getActivity();
+        String latlon = activity.getLatLon();
+        String[] tempparse = latlon.split(":");
+        lat = tempparse[0];
+        lon = tempparse[1];
         return mView;
+
     }
 
     @Override
@@ -55,9 +63,11 @@ public class BlankFragment extends Fragment implements OnMapReadyCallback {
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
+        Float latnum = Float.parseFloat(lat);
+        Float lonnum = Float.parseFloat(lon);
 
         // Add a marker in Sydney and move the camera
-        LatLng sydney = new LatLng(-34, 151);
+        LatLng sydney = new LatLng(latnum, lonnum);
         mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
     }

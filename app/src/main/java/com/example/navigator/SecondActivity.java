@@ -44,6 +44,13 @@ public class SecondActivity extends AppCompatActivity {
         String wind = intent.getStringExtra("wind").toString();
         return lat +":"+ lon+":"+humid+":"+temp+":"+prec+":"+wind;
     }
+    public String getLatLon(){
+        Intent intent = getIntent();
+        String lat = intent.getStringExtra("lat").toString();
+        String lon = intent.getStringExtra("long").toString();
+        return lat+":"+lon;
+    }
+
 //    public void addQueue(JsonObjectRequest req){
 //        queue.add(req);
 //
