@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void randomMe (View v) {
         locationInput = (EditText) findViewById(R.id.locationInput);
-        String address = locationInput.getText().toString();
+        final String address = locationInput.getText().toString();
         //String address = "129 Camp Verde Drive, Georgetown, Tx 78633";
         ///////////////////////////////////////////////////////////////////
         randomIntent = new Intent(this, SecondActivity.class);
@@ -68,7 +68,7 @@ public class MainActivity extends AppCompatActivity {
                             String lat = loc.get("lat").toString();
                             String lon = loc.get("lng").toString();
                             TextView textView = (TextView) findViewById(R.id.textView);
-                            textView.setText(lat);
+                            textView.setText("Finding: " + address);
                             randomIntent.putExtra("lat", (String) lat);
                             randomIntent.putExtra("long", (String) lon);
                             String darkKey = "4cb69f239372b85805964dd89e804575";
